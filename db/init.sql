@@ -14,3 +14,9 @@ VALUES ('Malbec', 'Tinto'),
        ('Syrah', 'Tinto'),
        ('Chenin', 'Blanco'),
        ('Chardonnay', 'Blanco');
+       
+#EXERCISE2
+        ('Cabernet Sauvignon','Tinto');
+        ('Cabernet','Tinto');
+        ('CHARDONNAY','Blanco');
+        ('TORRONTES','Blanco');
