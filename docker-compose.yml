@@ -13,6 +13,37 @@ services:
       - db
     ports:
       - 8830:5000 #8830 - localhost del host, 5000 del container
+ #EXERCISE1
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: username
+      MYSQL_PASSWORD: password
+      
+#EXERCISE2
+  phpmyadmin:
+    image: phpmyadmin:5.2.0-fpm-alpine
+    links:
+      - db
+    restart: always
+    ports:
+      - 8081:80
+      
+#EXERCISE3
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d/:ro
+
+#EXERCISE4
+  app2:
+    build: ./app
+    links:
+      - db
+    ports:
+      - 8831:5001 #8831 - localhost del host, 5001 del container
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: username
+      MYSQL_PASSWORD: password
+
 
 
   db:
@@ -21,7 +52,6 @@ services:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_USER: username
       MYSQL_PASSWORD: password
-    volumes:
-      - ./db:/docker-entrypoint-initdb.d/:ro
+
 
 
